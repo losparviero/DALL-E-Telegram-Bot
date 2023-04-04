@@ -150,7 +150,7 @@ bot.on("message:text", async (ctx) => {
         let image_url = result.data.data[0].url;
         await ctx.replyWithPhoto(image_url, {
           reply_to_message_id: ctx.message.message_id,
-          caption: `<b>Image for</b> <code>${ctx.message.text}</code>\n<i>Generating using <b><a href= "https://t.me/makepicbot">Image Creator</a></b></i>`,
+          caption: `<b>Image for</b> <code>${ctx.message.text}</code>\n<i>Generated using <b><a href= "https://t.me/makepicbot">Image Creator</a></b></i>`,
           parse_mode: "HTML",
         });
       } catch (error) {

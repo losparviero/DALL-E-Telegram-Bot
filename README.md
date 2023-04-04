@@ -1,12 +1,12 @@
 # Image Creator Telegram Bot
 
-Generate pictures from text in Telegram, powered by GPT!
+Generate pictures from text in Telegram, powered by DALL-E!
 
 <br>
 
 ### Brief Note
 
-This uses the official ChatGPT API which is paid hence will require an API key from OpenAI. You'll be billed for usage accordingly. Check OpenAI's website for pricing.
+This uses the official OpenAI generations endpoint which is paid hence will require an API key from OpenAI. You'll be billed for usage accordingly. Refer to OpenAI's website for pricing.
 
 <br>
 

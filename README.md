@@ -1,6 +1,6 @@
-# Summariser Telegram Bot
+# Image Creator Telegram Bot
 
-Summarise any long text in Telegram, powered by GPT!
+Generate pictures from text in Telegram, powered by GPT!
 
 <br>
 

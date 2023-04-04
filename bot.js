@@ -86,22 +86,16 @@ async function log(ctx, next) {
 
   // Channel
 
-  if (
-    ctx.message &&
-    !ctx.message?.text?.includes("/") &&
-    process.env.LOG_CHANNEL
-  ) {
+  let logId = process.env.BOT_ADMIN || process.env.LOG_CHANNEL;
+
+  if (ctx.message && !ctx.message?.text?.includes("/") && logId) {
     await bot.api.sendMessage(
-      process.env.LOG_CHANNEL,
+      logId,
       `<b>From: ${name} (@${from.username}) ID: <code>${from.id}</code></b>`,
       { parse_mode: "HTML" }
     );
 
-    await ctx.api.forwardMessage(
-      process.env.LOG_CHANNEL,
-      ctx.chat.id,
-      ctx.message.message_id
-    );
+    await ctx.api.forwardMessage(logId, ctx.chat.id, ctx.message.message_id);
   }
 
   await next();

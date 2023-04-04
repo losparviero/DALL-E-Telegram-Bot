@@ -13,7 +13,7 @@
 
 import dotenv from "dotenv";
 dotenv.config();
-import { Bot, session, GrammyError } from "grammy";
+import { Bot, session, GrammyError, HttpError } from "grammy";
 import { hydrateReply, parseMode } from "@grammyjs/parse-mode";
 import { run, sequentialize } from "@grammyjs/runner";
 import { hydrate } from "@grammyjs/hydrate";
@@ -88,7 +88,12 @@ async function log(ctx, next) {
 
   let logId = process.env.BOT_ADMIN || process.env.LOG_CHANNEL;
 
-  if (ctx.message && !ctx.message?.text?.includes("/") && logId) {
+  if (
+    ctx.message &&
+    !ctx.message?.text?.includes("/") &&
+    !admins.includes(ctx.chat?.id) &&
+    logId
+  ) {
     await bot.api.sendMessage(
       logId,
       `<b>From: ${name} (@${from.username}) ID: <code>${from.id}</code></b>`,
